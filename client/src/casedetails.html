@@ -56,9 +56,14 @@
 				<div class="form-group">
 					<label><b>Picture: </b></label>
 					<div class="row">
-						<div class="col-sm-6 offset-3">
+						<div class="col-sm-6">
 							<img src="" id="picture" class="img-thumbnail rounded"/>	
 						</div>		
+				<div class="col-6" style="height:200px">
+				<div id="map" style="height:200px">
+
+				</div>
+				</div>
 					</div>
 				</div>
 
@@ -68,19 +73,32 @@
 
 <script>
 
-$.getJSON("test/case" + getParameterByName("casenumber") + ".json", function(json) {
-	var newDate = new Date();
-      newDate.setTime(json.created*1000);
-      dateString = newDate.toUTCString();
-	document.getElementById("casenumber").innerHTML = json.created;
-	document.getElementById("disease").innerHTML = json.disease;
-	document.getElementById("doctorID").innerHTML = json.doctor;
-	document.getElementById("affectedanimal").innerHTML = json.affected;
-	document.getElementById("author").innerHTML = json.author;
-	document.getElementById("picture").src = json.picture
-	document.getElementById("date").innerHTML = newDate
+		 function initMap() {
 
-});
+			$.getJSON("test/case" + getParameterByName("casenumber") + ".json", function(json) {
+				var newDate = new Date();
+			      newDate.setTime(json.created*1000);
+			      dateString = newDate.toUTCString();
+				document.getElementById("casenumber").innerHTML = json.created;
+				document.getElementById("disease").innerHTML = json.disease;
+				document.getElementById("doctorID").innerHTML = json.doctor;
+				document.getElementById("affectedanimal").innerHTML = json.affected;
+				document.getElementById("author").innerHTML = json.author;
+				document.getElementById("picture").src = json.picture
+				document.getElementById("date").innerHTML = newDate
+
+          var uluru = json.location;
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+
+			});
+        }
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -93,6 +111,9 @@ function getParameterByName(name, url) {
 }
 
 </script>
+			      <script async defer
+			      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjU2ImybIvLHhibwboU2LiikSxxxzi8TI&callback=initMap">
+			  </script>
 </body>
 
 </html>
