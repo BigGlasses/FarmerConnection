@@ -4,5 +4,6 @@
 	"doctor" : 2346543457,
 	"affected": "Cow",
 	"location": {"lat": 43.2609, "lng": 79.9192},
-	"author": "Farmer Tom"
+	"author": "Farmer Tom",
+	"picture": "http://cattlediseasehelp.weebly.com/uploads/1/6/2/0/16208918/289022.jpg"
 }
