@@ -1,0 +1,7 @@
+{
+	"created": 1508630653,
+	"disease": "Black Foot",
+	"affected": "Cow",
+	"location": {"lat": 43.2609, "lng": 79.9192},
+	"author": "Farmer Tom"
+}
