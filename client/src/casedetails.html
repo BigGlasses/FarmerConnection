@@ -1,0 +1,86 @@
+<html>
+
+<head>
+
+	<link rel="stylesheet" href="css/tether.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="background:rgb(240,240,240);">
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 offset-2" style="background:white;height:100%; padding: 100px">
+
+				<h1>Case Details</h1>
+				<br/>
+				
+				<div class="form-group">
+	    			<label><b>Case Number: </b></label>
+					<label id="casenumber">CaseNumber</label>
+				</div>
+
+				<div class="form-group">
+	    			<label><b>Author: </b></label>
+					<label id="author">Author</label>
+				</div>
+
+				<div class="form-group">
+					<label><b>Disease Suspected: </b></label>
+					<label id="disease">Disease</label>
+				</div>
+
+				<div class="form-group">
+					<label><b>Doctor ID: </b></label>
+					<label id="doctorID">DoctorID</label>
+				</div>
+
+
+				<div class="form-group">
+					<label><b>Affected Animal: </b></label>
+					<label id="affectedanimal">AffectedAnimal</label>
+				</div>
+
+				<div class="form-group">
+					<label><b>Picture: </b></label>
+					<div>
+						<img src="" id="picture" class="img-thumbnail rounded"/>			
+					</div>
+				</div>
+
+			</div>	
+		</div>
+	</div>
+
+<script>
+
+$.getJSON("test/case" + getParameterByName("casenumber") + ".json", function(json) {
+	document.getElementById("casenumber").innerHTML = json.created;
+	document.getElementById("disease").innerHTML = json.disease;
+	document.getElementById("doctorID").innerHTML = json.doctor;
+	document.getElementById("affectedanimal").innerHTML = json.affected;
+	document.getElementById("author").innerHTML = json.author;
+	document.getElementById("picture").src = json.picture
+
+});
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+</script>
+</body>
+
+</html>
