@@ -8,7 +8,7 @@
 	"author": "Farmer Tom",
 	"picture": "http://cattlediseasehelp.weebly.com/uploads/1/6/2/0/16208918/289022.jpg"
 },{
-	"created": 1508630653,
+	"created": 1508620653,
 	"disease": "Beak Rot",
 	"affected": "Chicken",
 	"location": {"lat": 41.2609, "lng": -79.9192},
@@ -16,7 +16,7 @@
 	"picture": "http://4.bp.blogspot.com/-IfeWPEJyxHQ/UO3i5RHVvdI/AAAAAAAAgWM/zqDQxcfppic/s1600/015.JPG"
 },
 {
-	"created": 1508630653,
+	"created": 1508610653,
 	"disease": "Anthrax",
 	"affected": "Cow",
 	"location": {"lat": 42.2609, "lng": -79.9192},

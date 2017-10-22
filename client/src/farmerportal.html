@@ -14,10 +14,10 @@
   <body>
     <div class="row container-fluid ">
       <div class="col-3  border border-primary" style="height:100%">
-        <div class="col-10 offset-1" style="height:50%">
+        <div class="col-10 offset-1" style="height:30%">
           <button type="button" class="btn btn-primary" onclick="newCase()">Submit New Case</button>
         </div>
-        <div class="col-12 text-center" style="height:50%">
+        <div class="col-12 text-center" style="height:70%">
           <h4> NEARBY CASES </h4>
           <div id="caseList">
           </div>
@@ -63,6 +63,9 @@
     var cList = $('#caseList')
     $.each(json.cases, function(i)
     {
+      var newDate = new Date();
+      newDate.setTime(json.cases[i].created*1000);
+      dateString = newDate.toUTCString();
 
         var marker = new google.maps.Marker({
           position: json.cases[i].location,
@@ -77,6 +80,10 @@
         var aaa = $('<div/>')
             .addClass('col-12 text-left')
             .text(json.cases[i].disease)
+            .appendTo(li);
+        var aaa = $('<div/>')
+            .addClass('col-12 text-left')
+            .text(dateString    )
             .appendTo(li);
         var aaa = $('<div/>')
             .addClass('col-12 text-right')
