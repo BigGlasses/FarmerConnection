@@ -5,13 +5,98 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="testscript.js"></script>
     <title>The Farmer Portal</title>
   </head>
   <body>
+    <div class="row container-fluid ">
+      <div class="col-3  border border-primary" style="height:100%">
+        <div class="col-10 offset-1" style="height:50%">
+          <button type="button" class="btn btn-primary" onclick="newCase()">Submit New Case</button>
+        </div>
+        <div class="col-12 text-center" style="height:50%">
+          <h4> NEARBY CASES </h4>
+          <div id="caseList">
+          </div>
+        </div>
+      </div>
+      <div id="map" style="height: 100%" class="col-9">
+      <div ></div>
+      </div>  
 
 
+    </div>
+
+  <script>
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjU2ImybIvLHhibwboU2LiikSxxxzi8TI&callback=initMap">
+  </script>
+  <script>
+    var map = 1;
+        function initMap() {
+          var uluru = {lat: 43.2609, lng: -79.9192};
+          map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+          loadInfo();
+        }
+
+    function newCase(){
+      window.location.replace("casesubmission.html")
+    }
+
+
+
+
+    function loadInfo(){
+    $.getJSON("test/cases.json", function(json) {
+    console.log(json); // this will show the info it in firebug console
+    var cList = $('#caseList')
+    $.each(json.cases, function(i)
+    {
+
+        var marker = new google.maps.Marker({
+          position: json.cases[i].location,
+          map: map,
+          title: json.cases[i].disease
+        });
+
+        var li = $('<div/>')
+            .addClass('col-12 border border-primary')
+            .attr('role', 'menuitem') 
+            .appendTo(cList);
+        var aaa = $('<div/>')
+            .addClass('col-12 text-left')
+            .text(json.cases[i].disease)
+            .appendTo(li);
+        var aaa = $('<div/>')
+            .addClass('col-12 text-right')
+            .text(json.cases[i].affected)
+            .appendTo(li);
+        var aaa = $('<div/>')
+            .addClass('col-12 text-right')
+            .text("1 kilometer")
+            .appendTo(li);
+        var aaa = $('<a/>')
+            .addClass('col-12 text-center')
+            .attr('href', 'casedetails.html?casenumber='+(i+1)) 
+            .text("View Case File")
+            .appendTo(li);
+    });
+  }
+);
+  }
+
+
+  </script>
   </body>
 </html>
