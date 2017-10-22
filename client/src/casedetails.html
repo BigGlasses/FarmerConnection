@@ -60,7 +60,7 @@
 
 <script>
 
-$.getJSON("test/case1.json", function(json) {
+$.getJSON("test/case" + getParameterByName("casenumber") + ".json", function(json) {
 	document.getElementById("casenumber").innerHTML = json.created;
 	document.getElementById("disease").innerHTML = json.disease;
 	document.getElementById("doctorID").innerHTML = json.doctor;
@@ -70,6 +70,15 @@ $.getJSON("test/case1.json", function(json) {
 
 });
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
 </script>
 </body>
