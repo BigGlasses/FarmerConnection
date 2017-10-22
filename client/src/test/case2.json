@@ -1,0 +1,9 @@
+{
+	"created": 1508630653,
+	"disease": "Beak Rot",
+	"affected": "Chicken",
+	"location": {"lat": 41.2609, "lng": -79.9192},
+	"author": "Farmer Lewis",
+	"picture": "http://4.bp.blogspot.com/-IfeWPEJyxHQ/UO3i5RHVvdI/AAAAAAAAgWM/zqDQxcfppic/s1600/015.JPG",
+	"doctor": 1
+}

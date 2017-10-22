@@ -1,0 +1,27 @@
+{
+	"cases":[
+		{
+	"created": 1508630653,
+	"disease": "Black Foot",
+	"affected": "Cow",
+	"location": {"lat": 43.2609, "lng": -78.9192},
+	"author": "Farmer Tom",
+	"picture": "http://cattlediseasehelp.weebly.com/uploads/1/6/2/0/16208918/289022.jpg"
+},{
+	"created": 1508630653,
+	"disease": "Beak Rot",
+	"affected": "Chicken",
+	"location": {"lat": 41.2609, "lng": -79.9192},
+	"author": "Farmer Lewis",
+	"picture": "http://4.bp.blogspot.com/-IfeWPEJyxHQ/UO3i5RHVvdI/AAAAAAAAgWM/zqDQxcfppic/s1600/015.JPG"
+},
+{
+	"created": 1508630653,
+	"disease": "Anthrax",
+	"affected": "Cow",
+	"location": {"lat": 42.2609, "lng": -79.9192},
+	"author": "Farmer Jerry",
+	"picture": "http://www.thenewsminute.com/sites/default/files/cattle.jpg"
+}
+	]
+}
