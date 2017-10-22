@@ -1,0 +1,74 @@
+<html>
+
+<head>
+
+	<link rel="stylesheet" href="css/tether.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="background:rgb(240,240,240);">
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 offset-2" style="background:white;height:100%; padding: 100px">
+
+				<h1>Case Details</h1>
+				<br/>
+				
+				<div class="form-group">
+	    			<label><b>Case Number: </b></label>
+					<label id="casenumber">CaseNumber</label>
+				</div>
+
+				<div class="form-group">
+	    			<label><b>Author: </b></label>
+					<label id="author">Author</label>
+				</div>
+
+				<div class="form-group">
+					<label><b>Disease Suspected *</b></label>
+					<p id="disease">Disease</p>
+				</div>
+
+				<div class="form-group">
+					<label><b>Doctor ID</b></label>
+					<p id="doctorID">DoctorID</p>
+				</div>
+
+
+				<div class="form-group">
+					<label><b>Affected Animal *</b></label>
+					<p id="affectedanimal">AffectedAnimal</p>
+				</div>
+
+				<div class="form-group">
+					<label><b>Picture *</b></label>
+					<img src="" id="picture"/>			
+				</div>
+
+			</div>	
+		</div>
+	</div>
+
+<script>
+
+$.getJSON("test/case1.json", function(json) {
+	document.getElementById("casenumber").innerHTML = json.created;
+	document.getElementById("disease").innerHTML = json.disease;
+	document.getElementById("doctorID").innerHTML = json.doctor;
+	document.getElementById("affectedanimal").innerHTML = json.affected;
+	document.getElementById("author").innerHTML = json.author;
+
+});
+
+
+</script>
+</body>
+
+</html>
