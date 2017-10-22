@@ -28,6 +28,11 @@
 				</div>
 
 				<div class="form-group">
+	    			<label><b>Date: </b></label>
+					<label id="date">Date</label>
+				</div>
+
+				<div class="form-group">
 	    			<label><b>Author: </b></label>
 					<label id="author">Author</label>
 				</div>
@@ -64,12 +69,16 @@
 <script>
 
 $.getJSON("test/case" + getParameterByName("casenumber") + ".json", function(json) {
+	var newDate = new Date();
+      newDate.setTime(json.created*1000);
+      dateString = newDate.toUTCString();
 	document.getElementById("casenumber").innerHTML = json.created;
 	document.getElementById("disease").innerHTML = json.disease;
 	document.getElementById("doctorID").innerHTML = json.doctor;
 	document.getElementById("affectedanimal").innerHTML = json.affected;
 	document.getElementById("author").innerHTML = json.author;
 	document.getElementById("picture").src = json.picture
+	document.getElementById("date").innerHTML = newDate
 
 });
 
